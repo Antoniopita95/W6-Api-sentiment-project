@@ -13,3 +13,5 @@ if not dburl:
 
 #Connecting with the DB
 client = MongoClient("mongodb://localhost/lotr")
+db = client.get_database()
+collection = db["frases"]

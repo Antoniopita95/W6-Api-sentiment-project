@@ -1,4 +1,4 @@
-from config.configuration import db, collection
+from configuration import db, collection
 
 def dialog(char):
     """

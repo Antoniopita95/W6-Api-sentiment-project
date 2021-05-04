@@ -16,6 +16,8 @@ def index():
     readme_file = open("Readme.md", "r")
     md_template = markdown.markdown( 
         readme_file.read(), extensions=["fenced_code"]
+    )
+    return md_template
 
 
 
@@ -36,14 +38,4 @@ def index():
 
 
 
-
-
-
-
-
-
-
-
-
-
-        app.run("0.0.0.0", 5000, debug=True)
+app.run("0.0.0.0", 5000, debug=True)
