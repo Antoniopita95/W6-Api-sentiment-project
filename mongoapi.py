@@ -3,7 +3,7 @@ from flask import jsonify
 import json
 import markdown.extensions.fenced_code
 import tools.getdata as get
-import tools.postdata as pos
+#import tools.postdata as pos
 
 
 
@@ -19,6 +19,23 @@ def index():
     )
     return md_template
 
+@app.route("/dialog/<char>")
+def dialog_(char):
+    quotes = get.dialog(char)
+    return jsonify(quotes)
+
+@app.route("/quotes_movie/<movie>") #tenemos espacios de maás al final de las pelis
+def quotes_movie(movie):
+    quotes = get.quotes_movie(movie)
+    return jsonify(quotes)
+
+    
+@app.route("/movies")
+def movies():
+    quotes = get.movies()
+    return jsonify(quotes)
+
+app.run(debug=True)
 
 
 
@@ -38,4 +55,7 @@ def index():
 
 
 
-app.run("0.0.0.0", 5000, debug=True)
+
+
+
+

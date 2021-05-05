@@ -9,6 +9,7 @@ def dialog(char):
     quotes = list(collection.find(query,proj))
     return quotes
 
+
 def quotes_movie(movie):
     """
     Function that returns all the quotes of one of the three movies
@@ -17,3 +18,15 @@ def quotes_movie(movie):
     query = {"movie": f"{movie}"}
     quotes = list(collection.find(query,proj))
     return quotes
+
+
+def movies():
+    """
+    Function that returns all  movies from the database
+    """
+    query = {}
+    project = {"_id": 0, "movie":1}
+    quotes = list(collection.find(query, project))
+    return quotes
+
+
