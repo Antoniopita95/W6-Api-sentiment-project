@@ -16,3 +16,4 @@ if not dburl:
 client = MongoClient(dburl)
 db = client.get_database()
 collection = db["frases"]
+
