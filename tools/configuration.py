@@ -2,6 +2,7 @@ import os
 import dotenv
 from pymongo import MongoClient
 
+
 dotenv.load_dotenv()
 
 dburl = os.getenv("URL")
@@ -12,6 +13,6 @@ if not dburl:
     raise ValueError("No URL MongoDB")
 
 #Connecting with the DB
-client = MongoClient("mongodb://localhost/lotr")
+client = MongoClient(dburl)
 db = client.get_database()
 collection = db["frases"]
