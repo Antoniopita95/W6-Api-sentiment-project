@@ -19,12 +19,39 @@ def index():
     )
     return md_template
 
+@app.route("/quotes")
+def quotes_():
+   """
+   Function to see all the quotes
+   """
+    quotes = get.quotes()
+    return jsonify(quotes)
+
+
+@app.route("/quotes/<char>")
+"""
+Function that let you find all the quotes from a certain character
+"""
+def quotes_char(char):
+    quotes = get.dialogue(char)
+    return jsonify(quotes)
+
+@app.route("/quotes/<scene>")
+"""
+Function that let you find all the quotes from a certain character
+"""
+def quotes_scene(scene):
+    quotes = get.scene_(scene)
+    return jsonify(quotes)
+
+
+"""
 @app.route("/dialog/<char>")
 def dialog_(char):
     quotes = get.dialog(char)
     return jsonify(quotes)
 
-@app.route("/quotes_movie/<movie>") #tenemos espacios de maás al final de las pelis
+@app.route("/quotes_movie/<movie>") 
 def quotes_movie(movie):
     quotes = get.quotes_movie(movie)
     return jsonify(quotes)
@@ -34,8 +61,19 @@ def quotes_movie(movie):
 def movies():
     quotes = get.movies()
     return jsonify(quotes)
+ @app.route()
+
+ """
+
+
+
+
+
+
+
 
 app.run(debug=True)
+
 
 
 

@@ -1,32 +1,32 @@
 from configuration import db, collection
 
-def dialog(char):
+def dialogue(char):
     """
-    Function that returns all the quotes of a certain character
+    Function that returns all the quotes from a certain character
     """
-    proj = {"_id": 0, "index": 0}
-    query = {"char": f"{char}"}
+    proj = {"_id": 0}
+    query = {"character_name": f"{char}"}
     quotes = list(collection.find(query,proj))
     return quotes
 
-
-def quotes_movie(movie):
+def quotes():
     """
-    Function that returns all the quotes of one of the three movies
-    """
-    proj = {"_id": 0, "index": 0}
-    query = {"movie": f"{movie}"}
-    quotes = list(collection.find(query,proj))
-    return quotes
-
-
-def movies():
-    """
-    Function that returns all  movies from the database
+    Function that returns all quotes 
     """
     query = {}
-    project = {"_id": 0, "movie":1}
-    quotes = list(collection.find(query, project))
+    quotes = list(collection.find(query,{"_id": 0}))
     return quotes
+
+def scene_(scene):
+    """
+    Function that let you find the performance of certain scene
+    """
+    proj = {"_id": 0}
+    query = {"scene": f"{scene}"}
+    quotes = list(collection.find(query,proj))
+    return quotes
+
+
+
 
 

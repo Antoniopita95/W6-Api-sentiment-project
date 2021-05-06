@@ -15,5 +15,5 @@ if not dburl:
 #Connecting with the DB
 client = MongoClient(dburl)
 db = client.get_database()
-collection = db["frases"]
+collection = db["Quotes"]
 
